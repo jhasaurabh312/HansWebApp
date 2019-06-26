@@ -17,11 +17,15 @@ import {
    MatInputModule,
    MatFormFieldModule
   } from '@angular/material';
+import { SubscriptionComponent } from './pages/subscription/subscription.component';
+import { CentersComponent } from './pages/centers/centers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SubscriptionComponent,
+    CentersComponent
   ],
   imports: [
     BrowserModule,
