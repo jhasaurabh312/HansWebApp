@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,9 +9,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule , MatStepperModule, MatInputModule, MatFormFieldModule} from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule , MatStepperModule, MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { SubscriptionComponent } from './pages/subscription/subscription.component';
 import { CentersComponent } from './pages/centers/centers.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { RegisterTwoComponent } from './pages/register-two/register-two.component';
 
 
 @NgModule({
@@ -18,7 +21,9 @@ import { CentersComponent } from './pages/centers/centers.component';
     AppComponent,
     LoginComponent,
     SubscriptionComponent,
-    CentersComponent
+    CentersComponent,
+    RegisterComponent,
+    RegisterTwoComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,19 @@ import { CentersComponent } from './pages/centers/centers.component';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,            
+    MatDatepickerModule,        
+    MatNativeDateModule,
+    MatInputModule ,
+    MatToolbarModule,
+    MatButtonModule ,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatStepperModule,
+    BrowserAnimationsModule,
+   
+
   ],
   providers: [],
   bootstrap: [AppComponent]

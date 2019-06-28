@@ -26,7 +26,7 @@ export class CentersComponent implements OnInit {
 
       var l = this.centres.length;
       for(let i=0;i<l;i++)
-       this.centres[i].profile_photo = 'https://i2.wp.com/pacificmortgageca.com/wp-content/uploads/2017/11/dummyprofilef.jpg?ssl=1';
+       this.centres[i].profile_photo = 'https://img.icons8.com/color/1600/circled-user-male-skin-type-1-2.png';
     })
   }
 
