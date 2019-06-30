@@ -14,6 +14,7 @@ import { SubscriptionComponent } from './pages/subscription/subscription.compone
 import { CentersComponent } from './pages/centers/centers.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RegisterTwoComponent } from './pages/register-two/register-two.component';
+import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { RegisterTwoComponent } from './pages/register-two/register-two.componen
     SubscriptionComponent,
     CentersComponent,
     RegisterComponent,
-    RegisterTwoComponent
+    RegisterTwoComponent,
+    OnboardingComponent
   ],
   imports: [
     BrowserModule,

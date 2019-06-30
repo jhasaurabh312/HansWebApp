@@ -710,6 +710,9 @@ export class RegisterTwoComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
+
+
 
 }

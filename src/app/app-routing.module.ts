@@ -5,9 +5,11 @@ import { CentersComponent } from './pages/centers/centers.component';
 import { SubscriptionComponent } from './pages/subscription/subscription.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RegisterTwoComponent } from './pages/register-two/register-two.component';
+import { OnboardingComponent } from './pages/onboarding/onboarding.component';
+
 
 const routes: Routes = [
-  {path : '' , component : RegisterTwoComponent , pathMatch : 'full' },
+  {path : '' , component : OnboardingComponent , pathMatch : 'full' },
 ];
 
 @NgModule({
