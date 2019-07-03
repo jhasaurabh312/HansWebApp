@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1561704167961,
+  "timestamp": 1562162679569,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -10,13 +10,13 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-es2015.7d1085bbacc1dacde924.js",
-        "/main-es5.c04cc96a85018bc0e62f.js",
+        "/main-es2015.650f078774d76540f548.js",
+        "/main-es5.a89602b8a3953e8da04e.js",
         "/polyfills-es2015.5728f680576ca47e99fe.js",
         "/polyfills-es5.2e5f0eafe40ded881b53.js",
         "/runtime-es2015.858f8dd898b75fe86926.js",
         "/runtime-es5.741402d1d47331ce975c.js",
-        "/styles.4548db6e79a10298d916.css"
+        "/styles.adf04a99cbd0ddafa668.css"
       ],
       "patterns": []
     },
@@ -36,7 +36,12 @@
         "/assets/icons/icon-96x96.png",
         "/assets/images/bgicon.png",
         "/assets/images/logo.png",
-        "/bgicon.a89c3d1b57cbf312a0a6.png"
+        "/bgicon.a89c3d1b57cbf312a0a6.png",
+        "/fontawesome-webfont.674f50d287a8c48dc19b.eot",
+        "/fontawesome-webfont.912ec66d7572ff821749.svg",
+        "/fontawesome-webfont.af7ae505a9eed503f8b8.woff2",
+        "/fontawesome-webfont.b06871f281fee6b241d6.ttf",
+        "/fontawesome-webfont.fee66e712a8a08eef580.woff"
       ],
       "patterns": []
     }
@@ -56,14 +61,19 @@
     "/assets/images/logo.png": "dd836ec62e7aa020c23844ef25376d15a18f80dc",
     "/bgicon.a89c3d1b57cbf312a0a6.png": "aa76bd31681c0ca3ca4c56ce8bb5f644c4d69bfc",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/index.html": "56cf8bbe58861faee422e092c4e0a6765defb349",
-    "/main-es2015.7d1085bbacc1dacde924.js": "92a14a83c04c4a6606ea590d2a20c4925c1e9db0",
-    "/main-es5.c04cc96a85018bc0e62f.js": "cf749b58529ecadc9b75a8efd669f86374dd45d9",
+    "/fontawesome-webfont.674f50d287a8c48dc19b.eot": "d980c2ce873dc43af460d4d572d441304499f400",
+    "/fontawesome-webfont.912ec66d7572ff821749.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
+    "/fontawesome-webfont.af7ae505a9eed503f8b8.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
+    "/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
+    "/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
+    "/index.html": "39d2b195c567bf5d801e8d31eca48f45e9d0d1e5",
+    "/main-es2015.650f078774d76540f548.js": "b55f69fd46cf79d671c264f5fc15e92052db2e62",
+    "/main-es5.a89602b8a3953e8da04e.js": "a3a37e8eebcae1a8a12f63a5b8a5667d0bafe9c8",
     "/polyfills-es2015.5728f680576ca47e99fe.js": "77f974dd2b186031cfc4f4526d96db4efcd39353",
     "/polyfills-es5.2e5f0eafe40ded881b53.js": "589b38f3973ebdf4aa99760757da7b3a939dbb54",
     "/runtime-es2015.858f8dd898b75fe86926.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/runtime-es5.741402d1d47331ce975c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
-    "/styles.4548db6e79a10298d916.css": "5901b6b52355006b614d8d9254ddd9c24c31686a"
+    "/styles.adf04a99cbd0ddafa668.css": "d9aac2fd6f5bc0d57698f32cf1790bae30c86e4a"
   },
   "navigationUrls": [
     {

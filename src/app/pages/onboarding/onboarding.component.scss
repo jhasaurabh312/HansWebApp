@@ -87,7 +87,8 @@
         }
         #write-button{
             width:95%;
-            margin-right: 1%
+            margin-right: 1%;
+            position : relative
         }
 
         #send-button{
@@ -100,13 +101,14 @@
             border-radius : 50%;
             background-color : #34b7f1;
         }
-        #icon1 {
-            position: absolute; 
-            display: block; 
-            left: 50px; 
-            top: 100px; 
-            z-index: 9; 
-        }
+        
+    }
+    #icon1 {
+        position: absolute; 
+        display: block; 
+        left: 50px; 
+        top: 100px; 
+        z-index: 9; 
     }
     
 }
@@ -169,7 +171,8 @@
 
         #write-button{
             width:95%;
-            margin-right: 2%
+            margin-right: 2%;
+            position : relative
         }
 
         #send-button{
@@ -181,15 +184,15 @@
             border-radius : 50%;
             background-color : #34b7f1;
         }
-
-        #icon1 {
-            position: absolute; 
-            display: block; 
-            left: 50px; 
-            top: 100px; 
-            z-index: 9; 
-        }
-
         
     }
+
+    #icon1 {
+        position: absolute; 
+        display: block; 
+        left: 50px; 
+        top: 100px; 
+        // z-index: 9; 
+    }
+
 }

@@ -6,10 +6,20 @@ import { SubscriptionComponent } from './pages/subscription/subscription.compone
 import { RegisterComponent } from './pages/register/register.component';
 import { RegisterTwoComponent } from './pages/register-two/register-two.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
+import { RecommendedComponent } from './pages/recommended/recommended.component';
 
 
 const routes: Routes = [
-  {path : '' , component : OnboardingComponent , pathMatch : 'full' },
+  {path : '' , component : LoginComponent , pathMatch : 'full' },
+  {path : 'login' , component : LoginComponent },
+  {path : 'register' , component : RegisterComponent },
+  {path : 'register-two' , component : RegisterTwoComponent },
+  {path : 'centers' , component :  CentersComponent},
+  {path : 'subscription' , component : SubscriptionComponent },
+  {path : 'onboarding' , component : OnboardingComponent },
+  {path : 'recommended' , component : RecommendedComponent },
+  // {path : '/' , component :  },
+  
 ];
 
 @NgModule({

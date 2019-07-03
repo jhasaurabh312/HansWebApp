@@ -28,20 +28,28 @@
     </nav>
     
     <main>
-    
+        <div class="section" style="margin-top:20px" >
+            <div class="pull-right" style="border-radius:10px;width:80px;text-align:center;padding: 8px;margin-right: 10px" id="color">
+                <p style="color:white;margin-top:auto;margin-bottom:auto"><span id="display" style="font-size : 20px"></span></p>
+            </div>
+                
+        </div>
     </main>
     
     <footer style="position : fixed;bottom : 5px;width: 100%">
         <div class="section" style="display:flex">
-            <div class="row" id="write-button">
-                    <input placeholder="Show me some profiles">
-                    <!-- <div id="icon1"><i class="far fa-grin" style="color:black"></i></div> -->
-                    <div id="icon1"><i class="fa fa-paperclip" style="color:black"></i></div>
-                    <!-- <div id="icon3"><i class="fa fa-camera"></i></div> -->
-            </div>
-            <div class="row" id="send-button">
-                <div class="circle"><i class="fa fa-paper-plane"></i></div>
-            </div>
+            <form [formGroup]="answer" style="display:flex;width:100%">
+                <div class="row" id="write-button" >          
+                    <input placeholder="Show me some profiles" formControlName="ans">
+                   
+                    <!-- <span > <i class="fa fa-camera" style="color:black"></i></span> -->
+                    <!-- <span id="icon1"><i class="fa fa-paperclip" style="color:black"></i></span>
+                    <span id="icon1"><i class="fa fa-camera" style="color:black"></i></span> -->
+                </div>
+                <div class="row" id="send-button">
+                    <div class="circle" (click)="read()"><i class="fa fa-paper-plane" ></i></div>
+                </div>
+            </form>
         </div>
         
     </footer>

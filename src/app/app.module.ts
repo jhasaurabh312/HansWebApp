@@ -9,12 +9,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule , MatStepperModule, MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule , MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatCardModule} from '@angular/material';
 import { SubscriptionComponent } from './pages/subscription/subscription.component';
 import { CentersComponent } from './pages/centers/centers.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RegisterTwoComponent } from './pages/register-two/register-two.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
+import { RecommendedComponent } from './pages/recommended/recommended.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { OnboardingComponent } from './pages/onboarding/onboarding.component';
     CentersComponent,
     RegisterComponent,
     RegisterTwoComponent,
-    OnboardingComponent
+    OnboardingComponent,
+    RecommendedComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +45,9 @@ import { OnboardingComponent } from './pages/onboarding/onboarding.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatStepperModule,
+    MatCardModule,
     BrowserAnimationsModule,
-   
+    
 
   ],
   providers: [],
