@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-recommended',
@@ -12,7 +12,8 @@ export class RecommendedComponent implements OnInit {
 
   user_profile: any = [];
   answer: FormGroup;
-
+  personal: any;
+  Data : any;
   constructor( private _formBuilder: FormBuilder, private router: Router, private http:HttpClient) { 
     this.answer = this._formBuilder.group({
       'ans': [''],
@@ -22,17 +23,39 @@ export class RecommendedComponent implements OnInit {
 
   ngOnInit() {
 
-        // const headers = new HttpHeaders({
-        //   'Content-Type': 'application/json',
-        // })
+        
+       this.Data = {
+         from : "918271853820",
+          to : "918271853820",
+          event : "INBOX",
+          text : "efergr"
+       }
 
-        const Data = new FormData();
-        Data.append('identity_number' , localStorage.getItem('identity_number'));
+       var myJSON = JSON.stringify(this.Data);
+       console.log(myJSON);
 
-        this.http.post('https://partner.hansmatrimony.com/api/getRecommendedProfiles' , Data).subscribe((res : any) => {
-          this.user_profile = res;
-          console.log(this.user_profile);
-        })
+       const data1 = new FormData();
+       data1.append('data',myJSON);
+     
+        this.http.post(' https://partner.hansmatrimony.com/api/sendMessages' , data1 ).subscribe((res : any) => {
+            this.user_profile = res;
+            console.log(this.user_profile);
+          })
+         this.Data = {
+               from : "918271853820",
+                to : "918271853820",
+                event : "MESSAGEPROCESSED",
+         }
+
+         var myJSON = JSON.stringify(this.Data);
+         console.log(myJSON);
+  
+         const data2 = new FormData();
+         data2.append('data',myJSON);
+       
+          this.http.post(' https://partner.hansmatrimony.com/api/sendMessages' , data2 ).subscribe((res : any) => {
+           console.log(res);
+          })
   }
 
 }

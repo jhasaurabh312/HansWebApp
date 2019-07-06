@@ -1,10 +1,5 @@
 <main style="height :-webkit-fill-available;overflow: scroll;overflow-y: visible">
   <div class="col-sm-8 col-md-8 col-lg-8" style="margin-left:auto;margin-right:auto">
-    <!-- <div class="row">
-      <div class="col heading">Account Details</div>
-      <div class="col ml-auto text-right">Mandatory<sup>*</sup></div>
-    </div> -->
-  
     <form [formGroup]="AccountDetails">
       <div class="row">
         <div class="col-md-12">
@@ -93,12 +88,6 @@
             <mat-form-field class="full-width" appearance="standard">
                 <mat-label>Time of Birth</mat-label>
               <input matInput id="birthTime" type="time" placeholder="Choose a time" formControlName="birth_time">
-              <!-- <mat-hint align="end">Time should be in 24 hrs format.</mat-hint> -->
-              <!-- <mat-timepicker-toggle matSuffix [for]="pickerTime"></mat-timepicker-toggle>
-              <mat-timepicker color="primary"   #pickerTime ></mat-timepicker>
-              <mat-error *ngIf="AccountDetails.get('birth_time').hasError('required') && AccountDetails.controls['birth_time'].touched ">
-                  Please Select Your birth time.
-              </mat-error> -->
             </mat-form-field>
           </div>
           <div class="col-md-12">

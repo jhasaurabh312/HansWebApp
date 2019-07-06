@@ -1,4 +1,4 @@
-<main>
+<main id="main">
     <nav class="navbar navbar-expand-lg navbar" style="background-color:#34b7f1">
         <div class="col-sm-12 col-md-12 col-lg-12" id="left">
             <div class="navbar-nav" style="flex-direction:row">
@@ -27,14 +27,141 @@
         </div>  
     </nav>
     
-    <main>
-        <div class="section" style="margin-top:20px" >
-            <div class="pull-right" style="border-radius:10px;width:80px;text-align:center;padding: 8px;margin-right: 10px" id="color">
-                <p style="color:white;margin-top:auto;margin-bottom:auto"><span id="display" style="font-size : 20px"></span></p>
-            </div>
-                
+    <div class="section" style="margin-bottom : 80px">
+
+        <div class="section" style="margin-top:20px" *ngIf = "show1" >
+             <div class="container">
+                 <div class="text-center" id="show-me-profile" (click) = "showProfile()">Show me some profiles</div>
+             </div>
+        
         </div>
-    </main>
+
+
+       
+        <div class="section" style="background-color:white; margin-bottom: 30px" *ngIf = "show2">
+  
+  
+      
+            <!-- <mdb-carousel [isControls]="false" [animation]="'slide'">
+                <mdb-carousel-item>
+                  <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="First slide">
+                </mdb-carousel-item>
+                <mdb-carousel-item>
+                  <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg" alt="Second slide">
+                </mdb-carousel-item>
+                <mdb-carousel-item>
+                  <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Third slide">
+                </mdb-carousel-item>
+            </mdb-carousel> -->
+          <div class="container"  style="margin-top:20px"> 
+              <div class="section" style="padding:10px">
+                   <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg" style="width : 100%;height : 16rem;">
+              </div>
+          </div>
+        
+          <!-- carousel done -->
+         
+              <!-- <div class="row text-center header-row">
+                  <div class="col-md-6 col-sm-6 col-lg-6  mx-auto d-block text-right">
+                      <div class="icon-phone">
+                          <div class="pull-left">
+                            <p>Name</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>  -->
+          <div class="container" style="background-color:#f1f1f1;padding:20px;border-radius:20px;margin-top:20px;width: 90%">     
+              <div class="section" style="display:flex">
+                  <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center ;display : flex">
+                      <img src="../../../assets/color_icons/calendar-alt_gradient.svg">
+              
+                      <h6>{{personal.id}}</h6>
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center; display : flex">
+                      <img src="../../../assets/color_icons/ruler.svg">
+              
+                      <h6>{{personal.height}}</h6>
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;display : flex">
+                      <img src="../../../assets/color_icons/weight.svg">
+              
+                      <h6>{{personal.weight}}</h6>
+                  </div>
+              </div>
+             
+        
+            
+            </div>
+        
+            <div class="container" style="background-color:#f1f1f1;padding:20px;border-radius:20px;margin-top:20px;width: 90%">     
+              <div class="section" style="display:flex">
+                  <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center ;display : flex">
+                      <img src="../../../assets/color_icons/graduation-hat.svg">
+              
+                      <h6>{{personal.id}}</h6>
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center; display : flex">
+                      <img src="../../../assets/color_icons/Rupee.svg">
+              
+                      <h6>{{personal.height}}</h6>
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;display : flex">
+                      <img src="../../../assets/color_icons/map-marker_blue.svg">
+              
+                      <h6>{{personal.weight}}</h6>
+                  </div>
+              </div>
+             
+        
+            
+            </div>
+        
+            <div class="container" style="background-color:#f1f1f1;padding:20px;border-radius:20px;margin-top:20px;width: 90%">     
+              <div class="section" style="display:flex">
+                  <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center ;display : flex">
+                      <img src="../../../assets/color_icons/church.svg">
+              
+                      <h6>{{personal.id}}</h6>
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center; display : flex">
+                      <img src="../../../assets/color_icons/heart.svg">
+              
+                      <h6>{{personal.height}}</h6>
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:center;display : flex">
+                      <img src="../../../assets/color_icons/crockery.svg">
+              
+                      <h6>{{personal.weight}}</h6>
+                  </div>
+              </div>
+             
+        
+            
+            </div>
+        </div>
+
+        <!-- <div class="section" *ngFor="let member of user_profile"> -->
+            <div style="margin-top:20px;" class="section">
+                <div class="section" *ngFor ="let i of show_arr" style="margin-top:20px">
+                        <div class="section" *ngIf="i.side===1" style="margin-top:20px" >
+                            <div class="pull-right" style="display: block;border-radius:10px;text-align:center;padding: 8px;margin-right: 10px;background-color: #34b7f1" id="color1">
+                                <p style="color:white;margin-top:auto;margin-bottom:auto"><span id="display1" style="font-size : 20px">{{i.data}}</span></p>
+                            </div>
+                                
+                        </div>
+                
+                        <div class="section" *ngIf="i.side===0" style="margin-top:20px">
+                            <div class="pull-left" style="display: block;border-radius:10px;text-align:center;padding: 8px;margin-left: 10px;margin-top: 20px;margin-bottom : 20px;background-color: #34b7f1" id="color2">
+                                <p style="color:white;margin-top:auto;margin-bottom:auto"><span id="display2" style="font-size : 20px">{{i.data}}</span></p>
+                            </div>
+                                
+                        </div>
+                    </div>
+                </div>
+        <!-- </div>
+         -->
+
+        </div>
     
     <footer style="position : fixed;bottom : 5px;width: 100%">
         <div class="section" style="display:flex">
