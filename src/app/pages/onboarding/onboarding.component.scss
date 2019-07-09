@@ -66,10 +66,12 @@
     /*   body   */
 
     #main{
+        padding-bottom:180px;
         background-image: url('../../../assets/images/bgicon.png');
         background-size: cover;
         background-repeat: no-repeat;
-        overflow: hidden;
+        overflow-y: scroll;
+        overflow-x: hidden;
         height : -webkit-fill-available;
     }
 
@@ -101,6 +103,8 @@
             border-radius : 50%;
             background-color : #34b7f1;
         }
+
+        // padding-top: 50px
         
     }
     #icon1 {
@@ -122,14 +126,16 @@
         cursor: pointer;
     }
 
-    h6{
+    p{
         margin-top: auto;
         margin-bottom: auto;
         margin-left: 10px;
-        font-size : 1.1em;
-        font-weight: 600
+       
     }
 
+   * :focus{
+       outline: none
+   }
     
 }
 

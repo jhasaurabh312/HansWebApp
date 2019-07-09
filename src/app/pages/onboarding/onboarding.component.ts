@@ -12,12 +12,15 @@ export class OnboardingComponent implements OnInit {
   user_profile: any = [];
   answer: FormGroup;
   show1 : boolean = true;
-  show2 : boolean = false;
+  sent : any = [];
+  profile :  any = [];
+  message :  any = [];
   personal: any;
   Data : any;
   Data1 : any;
   response_arr:any=[];
   show_arr:any=[];
+  previous_chats: any;
 
   constructor( private _formBuilder: FormBuilder, private router: Router, private http:HttpClient) { 
     this.answer = this._formBuilder.group({
@@ -28,51 +31,76 @@ export class OnboardingComponent implements OnInit {
 
   ngOnInit() {
 
-        // const headers = new HttpHeaders({
-        //   'Content-Type': 'application/json',
-        // })
+    this.http.get('https://partner.hansmatrimony.com/api/getMessages?from=919918419947').subscribe((res : any) => {
+      this.previous_chats = res;
+      let l = this.previous_chats.length;
+      for(let i=0;i<l;i++){
+          if(this.previous_chats[i].type === 'IN'){
+            this.show_arr.push({'side':1,'data':this.previous_chats[i].message,'sent':1,'message':0,'profile':0});
+          } 
+      
+          else if(this.previous_chats[i].type === 'OUT'){
+              if(JSON.parse(this.previous_chats[i].message).type === 'message'){
+                this.show_arr.push({'side':1,'data':JSON.parse(this.previous_chats[i].message).apiwha_autoreply,'sent':0,'message':1,'profile':0});
+              }
+              else{
+                this.show_arr.push({'side':1,'data':JSON.parse(this.previous_chats[i].message).apiwha_autoreply,'sent':0,'message':0,'profile':1});
+              }
+            }
+        
+      }
 
-        // const Data = new FormData();
-        // Data.append('identity_number' , localStorage.getItem('identity_number'));
+     console.log(this.show_arr);
 
-        // this.http.post('https://partner.hansmatrimony.com/api/getProfile' , Data).subscribe((res : any) => {
-        //   this.user_profile = res;
-        //   console.log(this.user_profile);
-        // })
-
+  })
 
   }
 
-  read(){
-    // document.getElementById('color1').style.backgroundColor = "#34b7f1" ;
-    // document.getElementById('display1').innerHTML = this.answer.value.ans;
-    this.show_arr.push({'side':1,'data':this.answer.value.ans})
-     this.chatRequest();
+  read(data){
+    (<HTMLInputElement>document.getElementById('text')).value = '';
+    this.show_arr.push({'side':1,'data':this.answer.value.ans,'sent':1,'message':0,'profile':0}) 
+    this.chatRequest(data);
+  }
 
-     
+  sendresponse(data){
+    this.show_arr.push({'side':1,'data':data,'sent':1,'message':0,'profile':0}) 
+    this.chatRequest(data);
   }
 
   showProfile(){
         const Data = new FormData();
         Data.append('identity_number' , localStorage.getItem('identity_number'));
-        this.show1 = false;
-        this.show2 = true;
+        this.sent = false;
+        this.profile = true;
 
         this.http.post('https://partner.hansmatrimony.com/api/getRecommendedProfiles' , Data).subscribe((res : any) => {
           this.user_profile = res;
-          this.personal = this.user_profile[0].profile;
-          console.log(this.personal);   
+          console.log(res);   
         })
   }
 
-  chatRequest(){
-   
-    this.Data = {
-      from : "918271853820",
-       to : "918271853820",
-       event : "INBOX",
-       text : this.answer.value.ans ,
+  chatRequest(data){
+
+    if(data ==='typed'){
+      this.Data = {
+        from : "919918419947",
+         to : "919918419947",
+         event : "INBOX",
+         text : this.answer.value.ans ,
+         channel_name : "na"
+      }
     }
+    else{
+      this.Data = {
+        from : "919918419947",
+         to : "919918419947",
+         event : "INBOX",
+         text : data ,
+         channel_name : "na"
+      }
+    }
+   
+    
 
     var myJSON = JSON.stringify(this.Data);
     console.log(myJSON);
@@ -84,17 +112,22 @@ export class OnboardingComponent implements OnInit {
      this.http.post(' https://partner.hansmatrimony.com/api/sendMessages' , data1 ).subscribe((res : any) => {
         this.user_profile = res;
         console.log(this.user_profile);
-        this.show_arr.push({'side':0,'data':this.user_profile.apiwha_autoreply});
-       
-     })
-     this.revertResponse();
+        if(this.user_profile.type === 'profile')
+            this.show_arr.push({'side':0,'data':this.user_profile.apiwha_autoreply,'sent':0,'message':0,'profile':1});
+
+        if(this.user_profile.type === 'message')
+            this.show_arr.push({'side':0,'data':this.user_profile.apiwha_autoreply,'sent':0,'message':1,'profile':0});
+            
+        this.revertResponse();
+     }) 
   }  
   
   revertResponse(){
     this.Data1 = {
-      from : "918271853820",
-      to : "918271853820",
+      from : "919918419947",
+      to : "919918419947",
       event : "MESSAGEPROCESSED",
+      channel_name : "na"
     }
 
     var myJSON2 = JSON.stringify(this.Data1);
