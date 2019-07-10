@@ -7,6 +7,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { RegisterTwoComponent } from './pages/register-two/register-two.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { RecommendedComponent } from './pages/recommended/recommended.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,7 @@ const routes: Routes = [
   {path : 'subscription' , component : SubscriptionComponent },
   {path : 'onboarding' , component : OnboardingComponent },
   {path : 'recommended' , component : RecommendedComponent },
-  // {path : '/' , component :  },
+  {path : 'profile' , component : ProfileComponent },
   
 ];
 

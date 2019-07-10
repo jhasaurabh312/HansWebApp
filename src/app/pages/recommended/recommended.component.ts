@@ -24,38 +24,7 @@ export class RecommendedComponent implements OnInit {
   ngOnInit() {
 
         
-       this.Data = {
-         from : "918271853820",
-          to : "918271853820",
-          event : "INBOX",
-          text : "efergr"
-       }
-
-       var myJSON = JSON.stringify(this.Data);
-       console.log(myJSON);
-
-       const data1 = new FormData();
-       data1.append('data',myJSON);
-     
-        this.http.post(' https://partner.hansmatrimony.com/api/sendMessages' , data1 ).subscribe((res : any) => {
-            this.user_profile = res;
-            console.log(this.user_profile);
-          })
-         this.Data = {
-               from : "918271853820",
-                to : "918271853820",
-                event : "MESSAGEPROCESSED",
-         }
-
-         var myJSON = JSON.stringify(this.Data);
-         console.log(myJSON);
-  
-         const data2 = new FormData();
-         data2.append('data',myJSON);
-       
-          this.http.post(' https://partner.hansmatrimony.com/api/sendMessages' , data2 ).subscribe((res : any) => {
-           console.log(res);
-          })
+      
   }
 
 }

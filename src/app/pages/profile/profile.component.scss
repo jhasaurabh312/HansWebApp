@@ -1,7 +1,15 @@
 h6{
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: 7px;
+    margin-left: 10px;
+    font-size: 1.2em;
+    font-weight: 500
+}
+
+p{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 13px;
     font-size: 1em;
     font-weight: 500
 }
@@ -22,4 +30,10 @@ active-border{
        margin: -43px;
      transition: border-bottom, width,1s;
   
+  }
+
+ mat-list-item {
+      display: flex;
+      flex-direction: column;
+      align-items: left
   }

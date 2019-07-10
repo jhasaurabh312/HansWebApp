@@ -1,0 +1,396 @@
+<main style="overflow-y:scroll;height : -webkit-fill-available">
+
+    <div class="row" style="margin: 0px;padding: 0px;">
+        <div class="container" style="padding:0px">
+            <div class="row text-center" style="width:90%;margin-left:auto;margin-right:auto">
+                <div class="container" style="padding:0px">
+                    <div class="row text-center header-row" style="margin-top:10px">
+                        <img class="img-thumbnail rounded-circle mx-auto d-block " style="width:250px;height: 250px;" src="https://static.knackforge.in/sites/default/files/default_images/dummy_5.png">
+                    </div>
+                    <!-- <div class="image">
+                              <form  enctype="multipart/form-data">
+                                <label for="photo"> <img src="../../../assets/color_icons/image-upload.svg" style="width: 40px;height: 40px"></label>
+                                <input type="file" name="filetoupload" id="photo" style="display:none" (change)="processfile($event)">
+                              </form>
+                    </div> -->
+                    <div class="row text-center header-row" style="margin-top:20px">
+                        <strong class=" mx-auto d-block">SAURABH JHA</strong>
+                    </div>
+                    <!-- <div class="row text-center header-row"  style="margin-top:20px">
+    
+                        <div class="container" style="display:flex">
+                            <div class=" icon" style="width:50%;margin-top:auto;margin-bottom:auto">
+                                <img src="../../../assets/color_icons/Group 1344.svg" style="width:40px">
+                            </div>
+                            <div class=" icon"  style="width:50%;margin-top:auto;margin-bottom:auto">
+                                <img src="../../../assets/color_icons/Group 1343.svg" style="width:40px">
+                            </div>
+                        </div>
+                        
+                       
+                    </div> -->
+                    <div class="row" style="width:100%;margin-left: auto;margin-right: auto; border-radius: 20px;margin-top:30px">
+              
+                        <mat-tab-group style="display:flex;width: 90%;margin-left: auto;margin-right: auto;">
+                            <mat-tab label="About" style="color:black">
+                            
+                            </mat-tab>
+                            <mat-tab label="Second" style="color:black">
+                            
+                            </mat-tab>
+                            <mat-tab label="Preferences" style="color:black">
+    
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                </div>
+            </div>
+           
+           
+        </div>
+    </div>
+    
+    <main class="section">
+            <mat-card>
+                    <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92C8B">
+                                <div class="section">
+                                    <div class="icon" style="display:flex">
+                                        <img src="../../../assets/color_icons/map-marker_blue.svg">
+                                        <p style="color: #E55A69;margin: 14px;">About</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+                    <div class="section">
+                            <mat-list>
+                                    <mat-list-item style="display:block">
+                                        <p>{{user.profile.about}}</p> 
+                                    </mat-list-item>
+                            </mat-list>
+                    </div>
+            </mat-card>
+    </main>
+    
+    <main class="section">
+            <mat-card>
+                    <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92C8B">
+                                <div class="section">
+                                    <div class="icon" style="display:flex">
+                                        <img src="../../../assets/color_icons/map-marker_blue.svg">
+                                        <p style="color: #E55A69;margin: 14px;">Educational Details</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+                    <div class="section">
+                            <mat-list>
+                                    <mat-list-item style="display:block">
+                                        <p>{{user.profile.degree}}</p> 
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                            </mat-list>
+                            <mat-list>
+                                    <mat-list-item style="display:block">
+                                        <p>{{user.profile.additional_qualications}}</p> 
+                                    </mat-list-item>
+                                   
+                            </mat-list>
+                    </div>
+            </mat-card>
+    </main>
+    
+    <main class="section">
+            <mat-card>
+                    <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92C8B">
+                                <div class="section">
+                                    <div class="icon" style="display:flex">
+                                        <img src="../../../assets/color_icons/map-marker_blue.svg">
+                                        <p style="color: #E55A69;margin: 14px;">CAREER DETAILS</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+                    <div class="section">
+                            <mat-list>
+                                    <mat-list-item style="display:block">
+                                        <h6>Occupation</h6>
+                                        <p>{{user.profile.occupation}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Organisation</h6>
+                                        <p>{{user.profile.company}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>City</h6>
+                                        <p>{{user.profile.working_city}}</p>
+                                    </mat-list-item>
+                                    
+                            </mat-list>    
+                    </div>
+               
+            </mat-card>
+    </main>
+    
+    
+    <main class="section">
+            <mat-card>
+                    <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92C8B">
+                                <div class="section">
+                                    <div class="icon" style="display:flex">
+                                        <img src="../../../assets/color_icons/map-marker_blue.svg">
+                                        <p style="color: #E55A69;margin: 14px;">CONTACT DETAILS</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+                    <div class="section">
+                            <mat-list>
+                                    <mat-list-item style="display:flex">
+                                        <h6>E-mail</h6>
+                                        <p>{{user.family.email}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:flex">
+                                        <h6>Mobile</h6>
+                                        <p>{{user.family.mobile}}</p>
+                                    </mat-list-item>
+                                    <mat-list-item style="display:flex">
+                                        <h6>WhatsApp</h6>
+                                        <p>{{user.profile.phone}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:flex">
+                                        <h6>Address</h6>
+                                        <p>{{user.profile.birth_place}}</p>
+                                    </mat-list-item>
+                                    
+                                </mat-list>    
+                    </div>
+                
+            </mat-card>
+    </main>
+    
+    <main class="section">
+            <mat-card>
+                    <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92C8B">
+                                <div class="section">
+                                    <div class="icon" style="display:flex">
+                                        <img src="../../../assets/color_icons/map-marker_blue.svg">
+                                        <p style="color: #E55A69;margin: 14px;">HOROSCOPIC DETAILS</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+                    <div class="section">
+                            <mat-list>
+                                <div class="section" style="display:flex">
+                                    <mat-list-item style="display:block">
+                                        <h6>Mangalik Status</h6>
+                                        <p>{{user.profile.manglik}}</p>
+                                    </mat-list-item>
+                                    
+                                    <mat-list-item style="display:block">
+                                        <h6>Birth Time</h6>
+                                        <p>{{user.profile.birth_time}}</p>
+                                    </mat-list-item>
+                                </div>
+                                <mat-divider></mat-divider>  
+                                <div class="section" style="display:flex">
+                                        <mat-list-item style="display:block">
+                                            <h6>Birth Date</h6>
+                                            <p>{{user.profile.birth_date}}</p>
+                                        </mat-list-item>
+                                        
+                                        <mat-list-item style="display:block">
+                                            <h6>Birth City</h6>
+                                            <p>{{user.profile.birth_place}}</p>
+                                        </mat-list-item>
+                                </div>  
+                                    
+                            </mat-list>    
+                    </div>
+                
+            </mat-card>
+    </main>
+    
+    <main class="section">
+            <mat-card>
+                    <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92C8B">
+                                <div class="section">
+                                    <div class="icon" style="display:flex">
+                                        <img src="../../../assets/color_icons/map-marker_blue.svg">
+                                        <p style="color: #E55A69;margin: 14px;">About Family</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+                    <div class="section">
+                            <mat-list>
+                                    <mat-list-item style="display:block">
+                                        <p>{{user.family.birth_place}}</p> 
+                                    </mat-list-item>
+                            </mat-list>
+                    </div>
+            </mat-card>
+    </main>
+    
+    
+    
+    <main class="section">
+        <mat-card>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92C8B">
+                            <div class="section">
+                                <div class="icon" style="display:flex">
+                                    <img src="../../../assets/color_icons/map-marker_blue.svg">
+                                    <p style="color: #E55A69;margin: 14px;">FAMILY DETAILS</p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                            <mat-list>
+                                    <mat-list-item style="display:block">
+                                        <h6>Father's Occupation</h6>
+                                        <p>{{user.family.father_occupation}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Mother's Occupation</h6>
+                                        <p>{{user.family.mother_occupation}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Mother's Status</h6>
+                                        <p>{{user.family.mother_status}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Father's Status</h6>
+                                        <p>{{user.family.father_status}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Family Income</h6>
+                                        <p>{{user.family.family_income}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Family Based In</h6>
+                                        <p>{{user.family.state}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Mother Tongue</h6>
+                                        <p>{{user.family.mother_tongue}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Family Type</h6>
+                                        <p>{{user.family.family_type}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Sister Unmarried</h6>
+                                        <p>{{user.family.unmarried_daughters}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Sister Married</h6>
+                                        <p>{{user.family.married_daughters}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Brother Married</h6>
+                                        <p>{{user.family.married_sons}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Brother Unmarried</h6>
+                                        <p>{{user.family.unmarried_sons}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>Address</h6>
+                                        <p>{{user.family.address}}</p>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item style="display:block">
+                                        <h6>House Type</h6>
+                                        <p>{{user.family.house_type}}</p>
+                                    </mat-list-item>
+                                    
+                                    
+                            </mat-list>
+                    </div>
+    
+        </mat-card>
+    </main>
+    
+    <main class="section">
+            <mat-card>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6 text-left" style="float:left;color:#F92C8B">
+                        <div class="section">
+                            <div class="icon" style="display:flex">
+                                <img src="../../../assets/color_icons/map-marker_blue.svg">
+                                <p style="color: #E55A69;margin: 14px;">BASIC DETAILS</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                        <mat-list>
+                                <mat-list-item style="display:block">
+                                    <h6>Working</h6>
+                                    <p></p>
+                                </mat-list-item>
+                                <mat-divider></mat-divider>
+                                <mat-list-item style="display:block">
+                                    <h6>Marital Status</h6>
+                                    <p></p>
+                                </mat-list-item>
+                                <mat-divider></mat-divider>
+                                <mat-list-item style="display:block">
+                                    <h6>Mangalik Status</h6>
+                                    <p></p>
+                                </mat-list-item>
+                                <mat-divider></mat-divider>
+                                <mat-list-item style="display:block">
+                                    <h6>Caste</h6>
+                                    <p></p>
+                                </mat-list-item>
+                                <mat-divider></mat-divider>
+                                <mat-list-item style="display:block">
+                                    <h6>Food Choice</h6>
+                                    <p></p>
+                                </mat-list-item>
+                               
+                                
+                        </mat-list>
+                </div>
+        
+            </mat-card>
+    </main>
+    
+    
+    
+    </main>
+    
+    

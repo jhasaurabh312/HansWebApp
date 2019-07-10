@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor( private _formBuilder: FormBuilder, private router: Router, private http:HttpClient) { 
     this.loginDetails = this._formBuilder.group({
-      'email': [''],
-      'password': [''],
+      'mail': [''],
+      'pass': [''],
     });;
 
   }  
@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
         // })
 
         const loginData = new FormData();
-        loginData.append('email' , this.loginDetails.value.email);
-        loginData.append('password', this.loginDetails.value.password);
+        loginData.append('email' , this.loginDetails.value.mail);
+        loginData.append('password', this.loginDetails.value.pass);
 
         console.log(this.loginDetails.value.email);
         console.log(this.loginDetails.value.password);
