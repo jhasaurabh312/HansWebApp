@@ -1,4 +1,5 @@
 
+
 import {
   Component,
   OnInit,
@@ -67,14 +68,12 @@ export const _filter = (opt: string[], value: string): string[] => {
 };
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-register-one',
+  templateUrl: './register-one.component.html',
+  styleUrls: ['./register-one.component.scss']
 })
+export class RegisterOneComponent implements OnInit {
 
-
-export class RegisterComponent implements OnInit {
-  // @ViewChild('stepper',{static: false}) private myStepper: MatStepper;
   @ViewChild('otpModal',{static: false}) private otpModal: any;
   @ViewChild('photoModal',{static: false}) private photoModal: any;
 
@@ -115,7 +114,7 @@ export class RegisterComponent implements OnInit {
   EducationDetails: FormGroup;
   changeNumber: boolean = false;
   FamilyDetails: FormGroup;
-  stateForm: FormGroup;
+  PageTwo: FormGroup;
   mapping_id: number;
   manglikValue: string;
   manglikPreference = ['Manglik', 'Anshik Manglik'];
@@ -279,10 +278,11 @@ export class RegisterComponent implements OnInit {
   OccupatiinOptions: Observable < string[] > ;
   AOptions: Observable < any[] > ;
   HigherEducationOptions: Observable < hd[] > ;
+  Pageextra: FormGroup;
   constructor(public dialog: MatDialog, private _formBuilder: FormBuilder, private Auth: AuthService, private router: Router,
     private ngxNotificationService: NgxNotificationService) {
-    this.stateForm = this._formBuilder.group({
-      'stateGroup': ['', Validators
+    this.PageTwo = this._formBuilder.group({
+      'PageTwo': ['', Validators
         .compose([Validators.required])
       ],
       'Religion': ['', Validators.compose([Validators.required])],
@@ -291,18 +291,16 @@ export class RegisterComponent implements OnInit {
       'Weight': ['', Validators.compose([Validators.required, Validators.maxLength(4)])],
       'Castes': ['', Validators.compose([])],
       'Mangalik': ['', Validators.compose([])],
-      'gotra': ['', Validators.compose([])],
-      'HoroScope': ['', Validators.compose([])],
-      'Sect': ['', Validators.compose([])],
-      'Open': [false],
-      'Currentcity': ['', Validators.compose([Validators.required])],
+      'gender': ['', Validators.compose([Validators.required])],
+      'age': ['', Validators.compose([Validators.required])],
+      
+      
     });
     this.PageOne = this._formBuilder.group({
       'email': ['', Validators.compose([Validators.required, Validators.email])],
       'password': ['', Validators.compose([Validators.required])],
       'fullname': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'create': ['', Validators.compose([Validators.required])],
-      'gender': ['', Validators.compose([Validators.required])],
       'phone': ['', Validators.compose([Validators.pattern('[0-9]*'),
         Validators.required,
         Validators.minLength(10),
@@ -313,12 +311,22 @@ export class RegisterComponent implements OnInit {
         Validators.minLength(10),
         Validators.maxLength(10)
       ])],
-      // 'Date': ['', Validators.compose([Validators.required])],
-      // 'birth_time': ['', Validators.compose([Validators.required])],
-      // 'birth_place': ['', Validators.compose([Validators.required])],
-      // 'food_choice': ['', Validators.compose([Validators.required])],
-
+      
     });
+    this.Pageextra = this._formBuilder.group({
+      'Pageextra': ['', Validators
+        .compose([Validators.required])
+      ],
+      'AnnualIncome': ['', Validators.compose([Validators.required])],
+      'Currentcity': ['', Validators.compose([Validators.required])],
+      'gotra': ['', Validators.compose([])],
+      'birth_place': ['', Validators.compose([Validators.required])],
+      'birth_date': ['', Validators.compose([Validators.required])],
+      'birth_time': ['', Validators.compose([Validators.required])],
+      'mother_tongue': ['', Validators.compose([Validators.required])],
+      'food_choice': ['', Validators.compose([Validators.required])],
+    });
+    
     this.EducationDetails = this._formBuilder.group({
       'HighestDegree': ['', Validators.compose([Validators.required])],
       'UgCollege': [''],
@@ -1148,36 +1156,32 @@ export class RegisterComponent implements OnInit {
   }
 
   firstStep() {
-    const firststepdata = new URLSearchParams();
-    firststepdata.set('email', this.PageOne.value.email);
-    firststepdata.set('password', this.PageOne.value.password);
-    firststepdata.set('relation', this.PageOne.value.create);
-    firststepdata.set('gender', this.PageOne.value.gender);
-    firststepdata.set('name', this.PageOne.value.fullname);
-    // firststepdata.set('birth_time', this.PageOne.value.birth_time);
-    // firststepdata.set('birth_place', this.PageOne.value.birth_place);
-    // firststepdata.append('food_choice', this.PageOne.value.food_choice);
-    // firststepdata.set('birth_date', this.birthDate);
-    firststepdata.set('whatsapp', this.PageOne.value.whatsapp);
-    firststepdata.set('mobile', this.PageOne.value.phone);
-    this.isCompleted1 = true;
-    this.gender = this.PageOne.value.gender;
-    console.log(this.gender);
+    const zerostepdata = new URLSearchParams();
+    zerostepdata.set('email', this.PageOne.value.email);
+    zerostepdata.set('password', this.PageOne.value.password);
+    zerostepdata.set('relation', this.PageOne.value.create);
+    zerostepdata.set('name', this.PageOne.value.fullname);
+   
+    zerostepdata.set('whatsapp', this.PageOne.value.whatsapp);
+    zerostepdata.set('mobile', this.PageOne.value.phone);
+    // this.isCompleted1 = true;
+    // this.gender = this.PageOne.value.gender;
+    // console.log(this.gender);
 
-    if (this.gender == "Male") {
-      this.minAge = this.currentAge - 5;
-      this.maxAge = this.currentAge;
-    } else {
-      this.maxAge = this.currentAge + 5;
-      this.minAge = this.currentAge;
-    }
-    console.log(this.minAge);
-    this.Auth.firstPage(firststepdata).subscribe((res: any) => {
+    // if (this.gender == "Male") {
+    //   this.minAge = this.currentAge - 5;
+    //   this.maxAge = this.currentAge;
+    // } else {
+    //   this.maxAge = this.currentAge + 5;
+    //   this.minAge = this.currentAge;
+    // }
+    // console.log(this.minAge);
+    this.Auth.firstPage(zerostepdata).subscribe((res: any) => {
 
       console.log('first', res);
       this.ngxNotificationService.sendMessage(res.error_message, 'success', 'top-right');
-      localStorage.setItem('identityNumber', res.identity_number);
-     
+      localStorage.setItem('identity_number', res.identity_number);
+      this.router.navigate(['/register-one']);
 
     }, err => {
       this.ngxNotificationService.sendMessage('SomeThing Went Wrong,Please try again AfterSome time!', 'danger', 'top-right');
@@ -1195,95 +1199,121 @@ export class RegisterComponent implements OnInit {
   //   });
   // }
   secondStep() {
-    const secondstepdata = new FormData();
-    secondstepdata.append('identity_number', localStorage.getItem('identityNumber'));
-    secondstepdata.append('mother_tongue', this.stateForm.value.stateGroup);
-    secondstepdata.append('religion', this.stateForm.value.Religion);
-    secondstepdata.append('caste_no_bar', this.stateForm.value.Open);
-    secondstepdata.append('caste', this.stateForm.value.Castes);
-    secondstepdata.append('manglik', this.stateForm.value.Mangalik);
-    secondstepdata.append('gotra', this.stateForm.value.gotra);
-    secondstepdata.append('horoscope', this.stateForm.value.HoroScope);
-    secondstepdata.append('marital_status', this.stateForm.value.MaritalStatus);
-    secondstepdata.append('height', this.Heights[this.stateForm.value.Height]);
-    secondstepdata.append('weight', this.stateForm.value.Weight);
-    secondstepdata.append('country', this.stateForm.value.phoneNumber);
-    secondstepdata.append('state', this.stateForm.value.phoneNumber);
-    secondstepdata.append('city', this.stateForm.value.Currentcity);
+    const firststepdata = new FormData();
+    firststepdata.append('identity_number', localStorage.getItem('identity_number'));
+    firststepdata.append('religion', this.PageTwo.value.Religion);
+    firststepdata.append('caste', this.PageTwo.value.Castes);
+    firststepdata.append('manglik', this.PageTwo.value.Mangalik);
+    firststepdata.set('gender', this.PageOne.value.gender);
+    firststepdata.set('age', this.PageOne.value.age);
+    firststepdata.append('marital_status', this.PageTwo.value.MaritalStatus);
+    firststepdata.append('height', this.Heights[this.PageTwo.value.Height]);
+    firststepdata.append('weight', this.PageTwo.value.Weight);
 
-    this.isCompleted2 = true;
-    this.currentCity = this.stateForm.value.Currentcity;
-    this.caste = this.stateForm.value.Castes;
-    this.maritalStatus = this.stateForm.value.MaritalStatus;
-    this.motherTongue = this.stateForm.value.stateGroup;
-    this.manglikValue = this.stateForm.value.Mangalik;
-    console.log(this.manglikValue);
+    // firststepdata.append('mother_tongue', this.PageTwo.value.stateGroup);
+    // firststepdata.append('caste_no_bar', this.PageTwo.value.Open);
+    // firststepdata.append('gotra', this.PageTwo.value.gotra);
+    // firststepdata.append('horoscope', this.PageTwo.value.HoroScope);
+    // firststepdata.append('country', this.PageTwo.value.phoneNumber);
+    // firststepdata.append('state', this.PageTwo.value.phoneNumber);
+    // firststepdata.append('city', this.PageTwo.value.Currentcity);
+
+    // this.isCompleted2 = true;
+    // this.currentCity = this.PageTwo.value.Currentcity;
+    // this.caste = this.PageTwo.value.Castes;
+    // this.maritalStatus = this.PageTwo.value.MaritalStatus;
+    // this.motherTongue = this.PageTwo.value.stateGroup;
+    // this.manglikValue = this.PageTwo.value.Mangalik;
+    // console.log(this.manglikValue);
 
 
-    if (this.manglikValue == 'Manglik') {
-      console.log('svs1');
-      this.prefManglik = this.manglikPreference;
-    } else if (this.manglikValue == 'Non-manglik') {
-      console.log('svs2');
-      this.prefManglik = this.nonManglikPreference;
-    } else {
-      this.prefManglik = [];
-      this.prefManglik.push("Doesn't matter");
-    }
-    console.log(this.prefManglik);
+    // if (this.manglikValue == 'Manglik') {
+    //   console.log('svs1');
+    //   this.prefManglik = this.manglikPreference;
+    // } else if (this.manglikValue == 'Non-manglik') {
+    //   console.log('svs2');
+    //   this.prefManglik = this.nonManglikPreference;
+    // } else {
+    //   this.prefManglik = [];
+    //   this.prefManglik.push("Doesn't matter");
+    // }
+    // console.log(this.prefManglik);
 
-    localStorage.setItem('prefManglik', JSON.stringify(this.prefManglik));
+    // localStorage.setItem('prefManglik', JSON.stringify(this.prefManglik));
 
-    console.log('manglik_id', this.manglikValue);
-    console.log('caste_id', JSON.parse(localStorage.getItem('mapping_id')));
-    secondstepdata.append('manglik_id', this.manglikValue);
-    secondstepdata.append('caste_id', JSON.parse(localStorage.getItem('mapping_id')));
+    // console.log('manglik_id', this.manglikValue);
+    // console.log('caste_id', JSON.parse(localStorage.getItem('mapping_id')));
+    // firststepdata.append('manglik_id', this.manglikValue);
+    // firststepdata.append('caste_id', JSON.parse(localStorage.getItem('mapping_id')));
 
-    if (this.gender == "Male") {
-      if (this.stateForm.value.Height < 10)
-        this.minHeight = this.Heights[0];
-      else
-        this.maxHeight = this.Heights[this.stateForm.value.Height - 1];
+    // if (this.gender == "Male") {
+    //   if (this.PageTwo.value.Height < 10)
+    //     this.minHeight = this.Heights[0];
+    //   else
+    //     this.maxHeight = this.Heights[this.PageTwo.value.Height - 1];
 
-      if (this.stateForm.value.Height > 10)
-        this.minHeight = this.Heights[this.stateForm.value.Height - 9];
-      else
-        this.maxHeight = this.Heights[this.stateForm.value.Height - 1];
-    } else {
-      if (this.stateForm.value.Height < 21)
-        this.minHeight = this.Heights[this.stateForm.value.Height + 1];
-      else
-        this.maxHeight = this.Heights[this.stateForm.value.Height + 9];
+    //   if (this.PageTwo.value.Height > 10)
+    //     this.minHeight = this.Heights[this.PageTwo.value.Height - 9];
+    //   else
+    //     this.maxHeight = this.Heights[this.PageTwo.value.Height - 1];
+    // } else {
+    //   if (this.PageTwo.value.Height < 21)
+    //     this.minHeight = this.Heights[this.PageTwo.value.Height + 1];
+    //   else
+    //     this.maxHeight = this.Heights[this.PageTwo.value.Height + 9];
 
-      if (this.stateForm.value.Height > 21)
-        this.minHeight = this.Heights[this.stateForm.value.Height + 1];
-      else
-        this.maxHeight = this.Heights[this.Heights.length - 1];
-    }
-    console.log(this.minHeight, " ", this.maxHeight);
+    //   if (this.PageTwo.value.Height > 21)
+    //     this.minHeight = this.Heights[this.PageTwo.value.Height + 1];
+    //   else
+    //     this.maxHeight = this.Heights[this.Heights.length - 1];
+    // }
+    // console.log(this.minHeight, " ", this.maxHeight);
 
-    this.Auth.secondPage(secondstepdata).subscribe(suc => {
+    this.Auth.secondPage(firststepdata).subscribe(suc => {
       console.log('suc', suc);
       this.ngxNotificationService.sendMessage('Profile Details Submitted Succesfully!', 'success', 'top-right');
-      this.PreferencesDetails.patchValue({
-        age_min: this.minAge,
-        age_max: this.maxAge,
-        height_min: this.minHeight,
-        height_max: this.maxHeight,
-        marital_status: this.maritalStatus,
-        working: "Doesn't matter",
-        food_choice: this.foodpreferences[0],
-        mother_tongue: this.motherTongue,
-      });
+      // this.PreferencesDetails.patchValue({
+      //   age_min: this.minAge,
+      //   age_max: this.maxAge,
+      //   height_min: this.minHeight,
+      //   height_max: this.maxHeight,
+      //   marital_status: this.maritalStatus,
+      //   working: "Doesn't matter",
+      //   food_choice: this.foodpreferences[0],
+      //   mother_tongue: this.motherTongue,
+      // });
     
     }, err => {
       this.ngxNotificationService.sendMessage('SomeThing Went Wrong,Please try again AfterSome time!', 'danger', 'top-right');
-      // console.log(err);
     });
   }
+
+  extrastep(){
+    const secondstepdata = new FormData();
+    secondstepdata.append('identity_number', localStorage.getItem('identity_number'));
+    
+    secondstepdata.append('birth_place', this.Pageextra.value.birth_place);
+    secondstepdata.append('birth_time',  this.Pageextra.value.birth_time);
+    secondstepdata.append('birth_date', this.Pageextra.value.birth_date);
+    secondstepdata.append('mother_tongue', this.Pageextra.value.stateGroup);
+    secondstepdata.append('food_choice', this.Pageextra.value.food_choice);
+    secondstepdata.append('gotra', this.Pageextra.value.gotra);
+    secondstepdata.append('annual_income', this.Pageextra.value.AnnualIncome);
+    secondstepdata.append('city', this.Pageextra.value.Currentcity);
+
+    this.Auth.secondPage(secondstepdata).subscribe(suc => {
+      console.log('suc', suc);
+      this.ngxNotificationService.sendMessage('Profile Details Submitted Succesfully!', 'success', 'top-right');  
+    }, err => {
+      this.ngxNotificationService.sendMessage('SomeThing Went Wrong,Please try again AfterSome time!', 'danger', 'top-right');
+    });
+    
+  }
+
+
   thirdStep() {
     const thirdstepdata = new FormData();
-    thirdstepdata.append('identity_number', localStorage.getItem('identityNumber'));
+    thirdstepdata.append('identity_number', localStorage.getItem('identity_number'));
     thirdstepdata.append('degree', this.EducationDetails.value.HighestDegree);
     thirdstepdata.append('college', this.EducationDetails.value.UgCollege);
     thirdstepdata.append('additional_qualification', this.EducationDetails.value.additional_qualification);
@@ -1309,7 +1339,7 @@ export class RegisterComponent implements OnInit {
   }
   fourthStep() {
     const fourthstepdata = new FormData();
-    fourthstepdata.append('identity_number', localStorage.getItem('identityNumber'));
+    fourthstepdata.append('identity_number', localStorage.getItem('identity_number'));
     fourthstepdata.append('family_type', this.FamilyDetails.value.FamilyType);
     fourthstepdata.append('father_status', this.FamilyDetails.value.father_status);
     fourthstepdata.append('mother_status', this.FamilyDetails.value.mother_status);
@@ -1442,7 +1472,7 @@ export class RegisterComponent implements OnInit {
     let photoBtn = document.getElementById('photoBtn') as HTMLButtonElement;
     photoBtn.disabled = true;
     const fifthstepdata = new FormData();
-    fifthstepdata.append('identity_number', localStorage.getItem('identityNumber'));
+    fifthstepdata.append('identity_number', localStorage.getItem('identity_number'));
     fifthstepdata.append('url', data);
     fifthstepdata.append('index', index);
 
@@ -1494,7 +1524,7 @@ export class RegisterComponent implements OnInit {
     console.log("preferences", this.PreferencesDetails);
     console.log('preferences caste', this.selectedItems1);
 
-    sixthstepdata.append('identity_number', localStorage.getItem('identityNumber'));
+    sixthstepdata.append('identity_number', localStorage.getItem('identity_number'));
     this.Auth.SixthPage(sixthstepdata).subscribe(suc => {
       this.ngxNotificationService.sendMessage('Preferences Submitted Succesfully!', 'success', 'top-right');
      
@@ -1542,7 +1572,7 @@ export class RegisterComponent implements OnInit {
       secondCtrl: ['', Validators.required]
     });
     // tslint:disable-next-line:no-non-null-assertion
-    this.stateGroupOptions = this.stateForm.get('stateGroup') !.valueChanges
+    this.stateGroupOptions = this.PageTwo.get('stateGroup') !.valueChanges
       .pipe(
         startWith(''),
         map(value => this._filterGroup(value))
@@ -1554,17 +1584,17 @@ export class RegisterComponent implements OnInit {
       );
     console.log(this.HigherEducationOptions);
     // tslint:disable-next-line:no-non-null-assertion
-    this.ReligionOptions = this.stateForm.get('Religion') !.valueChanges.pipe(
+    this.ReligionOptions = this.PageTwo.get('Religion') !.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
     );
     // tslint:disable-next-line:no-non-null-assertion
-    this.MartalStatusOtions = this.stateForm.get('MaritalStatus') !.valueChanges.pipe(
+    this.MartalStatusOtions = this.PageTwo.get('MaritalStatus') !.valueChanges.pipe(
       startWith(''),
       map(value => this._Maritalfilter(value))
     );
     // tslint:disable-next-line:no-non-null-assertion
-    this.CasteOptions = this.stateForm.get('Castes') !.valueChanges.pipe(
+    this.CasteOptions = this.PageTwo.get('Castes') !.valueChanges.pipe(
       startWith(''),
       map(value => this._Castefilter(value))
     );
@@ -1576,11 +1606,11 @@ export class RegisterComponent implements OnInit {
       startWith(''),
       map(value => this._genderfilter(value))
     );
-    this.MangalikOptions = this.stateForm.get('Mangalik') !.valueChanges.pipe(
+    this.MangalikOptions = this.PageTwo.get('Mangalik') !.valueChanges.pipe(
       startWith(''),
       map(value => this._Mangalikfilter(value))
     );
-    this.HoroScopeOptions = this.stateForm.get('Castes') !.valueChanges.pipe(
+    this.HoroScopeOptions = this.PageTwo.get('Castes') !.valueChanges.pipe(
       startWith(''),
       map(value => this._HoroScopefilter(value))
     );
@@ -1671,5 +1701,6 @@ export class RegisterComponent implements OnInit {
     console.log(items);
   }
 }
+
 
 

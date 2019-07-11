@@ -1,4 +1,5 @@
-<main id="main">
+
+    <main id="main">
     <nav class="navbar navbar-expand-lg navbar" style="background-color:#34b7f1;position : static">
         <div class="col-sm-12 col-md-12 col-lg-12" id="left">
             <div class="navbar-nav" style="flex-direction:row">
@@ -29,7 +30,7 @@
     </nav>
     
    
-        <div class="section" style="padding-bottom : 100px;height: -webkit-fill-available;overflow-y: scroll;overflow-x:hidden;display: block">
+        <div class="section" style="padding-bottom : 100px;height: -webkit-fill-available;overflow-y: scroll;overflow-x:hidden;display: block" id="body">
 
             <div class="section" style="margin-top:20px" *ngIf = "show1" >
                  <div class="container">
@@ -41,14 +42,14 @@
             <div style="margin-top:20px;" class="section">
                 <div class="section" *ngFor ="let i of show_arr" style="margin-top:20px">
                     <div class="section" *ngIf="i.sent===1" style="margin-top:20px;display:block" >
-                        <div class="pull-right" style="display: block;border-radius:10px;text-align:center;padding: 8px;margin-right: 10px;background-color: #34b7f1;" id="color1">
+                        <div class="pull-right" style="display: block;border-radius:10px;text-align:center;padding: 8px;margin-right: 10px;background-color: #34b7f1;display:block;margin-left:15%" id="color1">
                             <p style="color:white;margin-top:auto;margin-bottom:auto"><span id="display1" style="font-size : 20px">{{i.data}}</span></p>
                         </div>
                             
                     </div>
             
                     <div class="section" *ngIf="i.message===1" style="margin-top:20px;display: block" >
-                        <div class="pull-left" style="display: block;border-radius:10px;text-align:center;padding: 8px;margin-left: 10px;margin-top: 20px;margin-bottom : 20px;background-color: #34b7f1;display:block" id="color2">
+                        <div class="pull-left" style="display: block;border-radius:10px;text-align:center;padding: 8px;margin-left: 10px;margin-top: 20px;margin-bottom : 20px;background-color: #34b7f1;display:block;margin-right:15%" id="color2">
                             <p style="color:white;margin-top:auto;margin-bottom:auto"><span id="display2" style="font-size : 20px">{{i.data}}</span></p>
                         </div>                                
                     </div>

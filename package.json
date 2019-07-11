@@ -24,10 +24,13 @@
     "@angular/router": "~8.0.1",
     "@angular/service-worker": "~8.0.1",
     "angular-font-awesome": "^3.1.2",
+    "angular2-multiselect-dropdown": "^4.2.7",
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "mdbootstrap": "^4.8.3",
     "ng-pick-datetime": "^7.0.0",
+    "ng-snotify": "^4.3.1",
+    "ngx-notification": "^1.0.5",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

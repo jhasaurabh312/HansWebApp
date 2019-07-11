@@ -9,6 +9,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+// import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule , MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatCardModule,MatTabsModule,MatSelectModule} from '@angular/material';
 import { SubscriptionComponent } from './pages/subscription/subscription.component';
 import { CentersComponent } from './pages/centers/centers.component';
@@ -21,6 +26,7 @@ import { RegisterThreeComponent } from './pages/register-three/register-three.co
 import { RegisterFourComponent } from './pages/register-four/register-four.component';
 import { RegisterFiveComponent } from './pages/register-five/register-five.component';
 import { RegisterSixComponent } from './pages/register-six/register-six.component';
+import { RegisterOneComponent } from './pages/register-one/register-one.component';
 
 
 @NgModule({
@@ -37,7 +43,8 @@ import { RegisterSixComponent } from './pages/register-six/register-six.componen
     RegisterThreeComponent,
     RegisterFourComponent,
     RegisterFiveComponent,
-    RegisterSixComponent
+    RegisterSixComponent,
+    RegisterOneComponent
   ],
   imports: [
     BrowserModule,
@@ -58,8 +65,11 @@ import { RegisterSixComponent } from './pages/register-six/register-six.componen
     MatCardModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatSelectModule
-
+    MatSelectModule,
+    MatStepperModule,
+    MatAutocompleteModule,
+    MatCheckboxModule,
+    // AngularMultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

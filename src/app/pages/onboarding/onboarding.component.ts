@@ -21,6 +21,7 @@ export class OnboardingComponent implements OnInit {
   response_arr:any=[];
   show_arr:any=[];
   previous_chats: any;
+  user: any;
 
   constructor( private _formBuilder: FormBuilder, private router: Router, private http:HttpClient) { 
     this.answer = this._formBuilder.group({
@@ -31,7 +32,18 @@ export class OnboardingComponent implements OnInit {
 
   ngOnInit() {
 
-    this.http.get('https://partner.hansmatrimony.com/api/getMessages?from=919918419947').subscribe((res : any) => {
+    const data = new FormData();
+    data.append('identity_number',localStorage.getItem('identity_number'));;
+
+    this.http.post('https://partner.hansmatrimony.com/api/getProfile', data ).subscribe((res : any) =>{
+      this.user = res;
+      console.log('mobile number = ',this.user.family.mobile);
+      localStorage.setItem('mobile_number','91'+this.user.family.mobile);
+      console.log(localStorage.getItem('mobile_number'));
+
+    })
+
+    this.http.get('https://partner.hansmatrimony.com/api/getMessages?from='+localStorage.getItem('mobile_number')).subscribe((res : any) => {
       this.previous_chats = res;
       let l = this.previous_chats.length;
       for(let i=0;i<l;i++){
@@ -49,10 +61,12 @@ export class OnboardingComponent implements OnInit {
             }
         
       }
-
-     console.log(this.show_arr);
-
   })
+    console.log(this.show_arr);
+    var h = (<HTMLInputElement>document.getElementById('body')).clientHeight;
+    console.log(h);
+    window.scrollTo(0,2*h);
+
 
   }
 
@@ -83,8 +97,8 @@ export class OnboardingComponent implements OnInit {
 
     if(data ==='typed'){
       this.Data = {
-        from : "919918419947",
-         to : "919918419947",
+        from : localStorage.getItem('mobile_number'),
+         to : localStorage.getItem('mobile_number'),
          event : "INBOX",
          text : this.answer.value.ans ,
          channel_name : "na"
@@ -92,8 +106,8 @@ export class OnboardingComponent implements OnInit {
     }
     else{
       this.Data = {
-        from : "919918419947",
-         to : "919918419947",
+        from : localStorage.getItem('mobile_number'),
+         to : localStorage.getItem('mobile_number'),
          event : "INBOX",
          text : data ,
          channel_name : "na"
@@ -124,8 +138,8 @@ export class OnboardingComponent implements OnInit {
   
   revertResponse(){
     this.Data1 = {
-      from : "919918419947",
-      to : "919918419947",
+      from : localStorage.getItem('mobile_number'),
+      to : localStorage.getItem('mobile_number'),
       event : "MESSAGEPROCESSED",
       channel_name : "na"
     }

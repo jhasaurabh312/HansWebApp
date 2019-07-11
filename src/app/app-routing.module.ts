@@ -8,18 +8,30 @@ import { RegisterTwoComponent } from './pages/register-two/register-two.componen
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { RecommendedComponent } from './pages/recommended/recommended.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { RegisterOneComponent } from './pages/register-one/register-one.component';
+import { RegisterFourComponent } from './pages/register-four/register-four.component';
+import { RegisterFiveComponent } from './pages/register-five/register-five.component';
+import { RegisterThreeComponent } from './pages/register-three/register-three.component';
+import { RegisterSixComponent } from './pages/register-six/register-six.component';
+
 
 
 const routes: Routes = [
   {path : '' , component : LoginComponent , pathMatch : 'full' },
   {path : 'login' , component : LoginComponent },
   {path : 'register' , component : RegisterComponent },
+  {path : 'register-one' , component : RegisterOneComponent },
   {path : 'register-two' , component : RegisterTwoComponent },
+  {path : 'register-three' , component : RegisterThreeComponent },
+  {path : 'register-four' , component : RegisterFourComponent },
+  {path : 'register-five' , component : RegisterFiveComponent },
+  {path : 'register-six' , component : RegisterSixComponent },
   {path : 'centers' , component :  CentersComponent},
   {path : 'subscription' , component : SubscriptionComponent },
   {path : 'onboarding' , component : OnboardingComponent },
   {path : 'recommended' , component : RecommendedComponent },
   {path : 'profile' , component : ProfileComponent },
+  // {path : '' , component : }
   
 ];
 

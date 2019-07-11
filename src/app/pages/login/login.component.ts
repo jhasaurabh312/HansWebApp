@@ -28,10 +28,6 @@ export class LoginComponent implements OnInit {
 
    login(){
 
-        // const headers = new HttpHeaders({
-        //   'Content-Type': 'application/json',
-        // })
-
         const loginData = new FormData();
         loginData.append('email' , this.loginDetails.value.mail);
         loginData.append('password', this.loginDetails.value.pass);
