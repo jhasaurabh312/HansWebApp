@@ -11,7 +11,7 @@
         <form [formGroup]="FamilyDetails">
             <div class="row">
               <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>Family Type</mat-label>
                   <select matNativeControl  formControlName="FamilyType"  name="FamilyType">
                       <option *ngFor="let  option of FamilyType" [value]="option">
@@ -20,10 +20,9 @@
                     </select> 
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row ">
+            
               <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>Father Status</mat-label>
                   <select #fStatus matNativeControl formControlName="father_status"  name="father_status">
                       <option value="Alive">
@@ -35,10 +34,9 @@
                     </select> 
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row ">
+            
               <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>Mother Status</mat-label>
                   <select #mStatus matNativeControl formControlName="mother_status"  name="mother_status">
                       <option value="Alive">
@@ -50,10 +48,9 @@
                     </select> 
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row" *ngIf="fStatus.value=='Alive'">
-              <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+          
+              <div class="col-md-12" *ngIf="fStatus.value=='Alive'">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>Father's Occupation</mat-label>
                   <select matNativeControl  formControlName="FatherOccupation"  name="FatherOccupation">
                       <option *ngFor="let  option of Occupation" [value]="option">
@@ -62,10 +59,9 @@
                     </select> 
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row " *ngIf="mStatus.value=='Alive'">
-              <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+            
+              <div class="col-md-12" *ngIf="mStatus.value=='Alive'">
+                <mat-form-field class="full-width" appearance="standard">
                     <mat-label>Mother's Occupation</mat-label>
                     <select matNativeControl  formControlName="MotherOccupation"  name="MotherOccupation">
                         <option *ngFor="let  option of MotherOccupation" [value]="option">
@@ -74,17 +70,15 @@
                       </select>
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row">
+            
               <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>Family's Income</mat-label>
-                  <input type="text" matInput placeholder="eg : 24" formControlName="family_income">lpa
+                  <input type="text" matInput placeholder="eg : 24(in lpa)" formControlName="family_income">
                 </mat-form-field>
-              </div></div>
-            <div class="row">
+              </div>
               <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>Married Brothers</mat-label>
                   <select matNativeControl  formControlName="brother"  name="brother">
                       <option *ngFor="let  option of Brother" [value]="option">
@@ -93,10 +87,9 @@
                     </select>
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row">
+            
                 <div class="col-md-12">
-                  <mat-form-field class="full-width" appearance="outline">
+                  <mat-form-field class="full-width" appearance="standard">
                     <mat-label>UnMarried Brothers</mat-label>
                     <select matNativeControl  formControlName="umbrother"  name="umbrother">
                         <option *ngFor="let  option of Sister" [value]="option">
@@ -105,10 +98,9 @@
                       </select>
                   </mat-form-field>
                 </div>
-              </div>
-            <div class="row">
+             
               <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>Married Sisters</mat-label>
                   <select matNativeControl  formControlName="sister"  name="sister">
                       <option *ngFor="let  option of Sister" [value]="option">
@@ -117,10 +109,9 @@
                     </select>
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row">
+           
               <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>UnMarried Sisters</mat-label>
                   <select matNativeControl  formControlName="umsister" required name="umsister">
                       <option *ngFor="let  option of Sister" [value]="option">
@@ -129,10 +120,9 @@
                     </select>
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row">
+           
               <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>Family Living In</mat-label>
                   <input type="text" matInput [matAutocomplete]="ste" formControlName="state">
                   <mat-autocomplete autoActiveFirstOption #ste="matAutocomplete">
@@ -142,10 +132,9 @@
                   </mat-autocomplete>
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row">
+           
               <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>Native City</mat-label>
                   <input type="text" matInput [matAutocomplete]="city" formControlName="city">
                   <mat-autocomplete autoActiveFirstOption #city="matAutocomplete">
@@ -155,18 +144,16 @@
                   </mat-autocomplete>
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row">
+           
+           
               <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>Contact Address</mat-label>
                   <input type="text" matInput formControlName="address">
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row">
               <div class="col-md-12">
-                <mat-form-field class="full-width" appearance="outline">
+                <mat-form-field class="full-width" appearance="standard">
                   <mat-label>House Type</mat-label>
                   <select matNativeControl  formControlName="house_type"  name="house_type">
                       <option value="Owned">
@@ -181,18 +168,25 @@
                     </select>
                 </mat-form-field>
               </div>
-            </div>
-            <div class="row">
+           
+           
               <div class="col-md-12">
-                <mat-form-field appearance="outline" class="full-width">
+                <mat-form-field appearance="standard" class="full-width">
                   <mat-label>About My Family</mat-label>
-                  <textarea matInput placeholder="Write about your parents and brothers or sisters,Where do they live?What they are doing?"
-                    formControlName="about"></textarea>
+                  <input matInput placeholder="Write about your parents and brothers or sisters,Where do they live?What they are doing?"
+                    formControlName="about">
                 </mat-form-field>
               </div>
+              <div class="col-sm-5 col-md-5 col-lg-5" style="margin-left:auto;margin-right:auto;margin-top:40px;text-align:center;margin-bottom:50px">
+                 
+                  <div style="margin-left:auto;margin-right:auto;display:flex">
+                    <button class="btn-skip" style="margin-left:auto;margin-right:auto" type="button" >Skip</button>
+                    <button class="btn-next" style="margin-left:auto;margin-right:auto" type="button" (click)=" fourthStep()">Submit</button>
+                </div>
+          
             </div>
-            <button mat-flat-button color="warn" matStepperPrevious>Back</button>
-            <button mat-raised-button color="warn" (click)="fourthStep(stepper)" class="pull-right">Add to My profile</button>
+          </div>
+        
           </form>
       </div>    
   </div>

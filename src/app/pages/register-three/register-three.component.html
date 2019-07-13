@@ -11,7 +11,7 @@
                 <form [formGroup]="EducationDetails">
                     <div class="row">
                       <div class="col-md-12">
-                        <mat-form-field class="full-width" appearance="outline">
+                        <mat-form-field class="full-width" appearance="standard">
                           <mat-label>Highest Degree</mat-label>
                           <input type="text" matInput required [matAutocomplete]="hcd" required formControlName="HighestDegree">
                           <mat-autocomplete autoActiveFirstOption #hcd="matAutocomplete">
@@ -21,94 +21,85 @@
                               </mat-option>
                             </mat-optgroup>
                           </mat-autocomplete>              
-                          <mat-error *ngIf="EducationDetails.get('HighestDegree').hasError('required') && EducationDetails.controls['HighestDegree'].touched ">
-                            Please Choose a HighestDegree
-                          </mat-error>
+                          
                         </mat-form-field>
                       </div>
-                    </div>
-                    <div class="row ">
+                    
                       <div class="col-md-12">
-                        <mat-form-field class="full-width" appearance="outline">
+                        <mat-form-field class="full-width" appearance="standard">
                           <mat-label>Highest Degree College (Optional)</mat-label>
                           <input type="text" matInput formControlName="UgCollege">
                         </mat-form-field>
                       </div>
-                    </div>
-                    <div class="row">
+                    
                       <div class="col-md-12">
-                        <mat-form-field class="full-width" appearance="outline">
+                        <mat-form-field class="full-width" appearance="standard">
                           <mat-label>Additional Qualification Details (Optional)</mat-label>
-                          <textarea type="text" matInput formControlName="additional_qualification"></textarea>
+                          <input type="text" matInput formControlName="additional_qualification">
                         </mat-form-field>
                       </div>
-                    </div>
-                    <div class="row ">
+                    
                       <div class="col-md-12">
-                        <mat-form-field class="full-width" appearance="outline">
+                        <mat-form-field class="full-width" appearance="standard">
                           <mat-label>Occupation</mat-label>
                           <select matNativeControl  formControlName="Occupation" required name="Occupation">
                               <option *ngFor="let  option of Occupation" [value]="option">
                                 {{option}}
                               </option>
                             </select> 
-                          <mat-error *ngIf="EducationDetails.get('Occupation').hasError('required') && EducationDetails.controls['Occupation'].touched ">
-                            Please Choose a Occupation
-                          </mat-error>
+                         
                         </mat-form-field>
                       </div>
-                    </div>
-                    <div class="row">
+                   
                       <div class="col-md-12">
-                        <mat-form-field class="full-width" appearance="outline">
+                        <mat-form-field class="full-width" appearance="standard">
                           <mat-label>Profession name</mat-label>
                           <input type="text" matInput placeholder="IT Engineer" formControlName="profession" required name="profession">
-                          <mat-error *ngIf="EducationDetails.get('profession').hasError('required') && EducationDetails.controls['profession'].touched ">
+                          <!-- <mat-error *ngIf="EducationDetails.get('profession').hasError('required') && EducationDetails.controls['profession'].touched ">
                             Please Choose profession
-                          </mat-error>
+                          </mat-error> -->
                         </mat-form-field>
                       </div>
-                    </div>
-                    <div class="row">
+                    
                       <div class="col-md-12">
-                        <mat-form-field class="full-width" appearance="outline">
+                        <mat-form-field class="full-width" appearance="standard">
                           <mat-label>Company name</mat-label>
-                          <input type="text" matInput placeholder="Microsft" formControlName="Company" required name="Company">
-                          <mat-error *ngIf="EducationDetails.get('Company').hasError('required') && EducationDetails.controls['Company'].touched ">
+                          <input type="text" matInput placeholder="Microsoft" formControlName="Company" required name="Company">
+                          <!-- <mat-error *ngIf="EducationDetails.get('Company').hasError('required') && EducationDetails.controls['Company'].touched ">
                             Please Choose Company
-                          </mat-error>
+                          </mat-error> -->
                         </mat-form-field>
                       </div>
-                    </div> 
-                    <div class="row">
-                      <div class="col-md-12">
-                        <mat-form-field class="full-width" appearance="outline">
+                    
+                      <!-- <div class="col-md-12">
+                        <mat-form-field class="full-width" appearance="standard">
                           <mat-label>Annual Income In Lakhs</mat-label>
                           <input type="number" matInput formControlName="AnnualIncome" required name="AnnualIncome">
-                          <mat-error *ngIf="EducationDetails.get('AnnualIncome').hasError('required') && EducationDetails.controls['AnnualIncome'].touched ">
+                          <!-- <mat-error *ngIf="EducationDetails.get('AnnualIncome').hasError('required') && EducationDetails.controls['AnnualIncome'].touched ">
                             Please Choose Annual Income
-                          </mat-error>
-                        </mat-form-field>
-                      </div>
-                    </div>
-                    <hr>
-                    <h6>Here is your chance to make your profile stand out!</h6>
-                    <div class="row">
+                          </mat-error> -->
+                        <!-- </mat-form-field>
+                      </div> --> 
+                    
+                    
                       <div class="col-md-12">
-                        <mat-form-field appearance="outline" class="full-width">
+                        <mat-form-field appearance="standard" class="full-width">
                           <mat-label>Write About Yourself</mat-label>
-                          <textarea matInput placeholder="Write about your interests and hobbies etc" required formControlName="Yourself"></textarea>
-                          <mat-error *ngIf="EducationDetails.get('Yourself').hasError('required') && EducationDetails.controls['Yourself'].touched ">
-                            Please Write About Yourself
-                          </mat-error>
+                          <input matInput placeholder="Write about your interests and hobbies etc" required formControlName="Yourself">
+                         
                         </mat-form-field>
                       </div>
-                    </div>
-                    <button mat-flat-button color="warn" matStepperPrevious>Back</button>
-                    <button mat-flat-button color="warn" class="pull-right"  [disabled]="!EducationDetails.valid"
-                      (click)="thirdStep(stepper)">Continue
-                    </button>
+
+                      <div class="col-sm-5 col-md-5 col-lg-5" style="margin-left:auto;margin-right:auto;margin-top:40px;text-align:center">
                  
+                          <div style="margin-left:auto;margin-right:auto;display:flex">
+                            <button class="btn-skip" style="margin-left:auto;margin-right:auto" type="button" >Skip</button>
+                            <button class="btn-next" style="margin-left:auto;margin-right:auto" type="button" (click)=" thirdStep()">Submit</button>
+                        </div>
+                   
+                    </div>
+                </div>
+                  
             </form>
        
   </div>

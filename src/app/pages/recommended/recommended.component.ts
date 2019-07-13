@@ -14,6 +14,7 @@ export class RecommendedComponent implements OnInit {
   answer: FormGroup;
   personal: any;
   Data : any;
+  user : any = [];
   constructor( private _formBuilder: FormBuilder, private router: Router, private http:HttpClient) { 
     this.answer = this._formBuilder.group({
       'ans': [''],

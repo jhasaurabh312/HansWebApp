@@ -14,7 +14,7 @@ callback(data)
 }
 
 firstPage(data) {
-  return this.http.post('https://partner.hansmatrimony.com/api/' + 'createFirstPageProfile?' + data , null);
+  return this.http.post('https://partner.hansmatrimony.com/api/' + 'createZeroPageProfilePWA?' + data , null);
 }
 
 sendOtp(num)
@@ -33,11 +33,15 @@ verifyOtp(num)
 }
 
 secondPage(data) {
-  return this.http.post('https://partner.hansmatrimony.com/api/' + 'createSecondPageProfile', data);
+  return this.http.post('https://partner.hansmatrimony.com/api/' + 'createFirstPageProfilePWA', data);
+}
+
+newPage(data) {
+  return this.http.post('https://partner.hansmatrimony.com/api/' + 'createSecondPageProfilePWA', data);
 }
 
 thirdPage(data) {
-  return this.http.post('https://partner.hansmatrimony.com/api/' + 'createThirdPageProfile', data);
+  return this.http.post('https://partner.hansmatrimony.com/api/' + 'createThirdPageProfilePWA', data);
 }
 FourthPage(data) {
   return this.http.post('https://partner.hansmatrimony.com/api/' + 'createFourthPageProfile', data);

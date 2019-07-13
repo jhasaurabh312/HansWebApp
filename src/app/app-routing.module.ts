@@ -13,6 +13,7 @@ import { RegisterFourComponent } from './pages/register-four/register-four.compo
 import { RegisterFiveComponent } from './pages/register-five/register-five.component';
 import { RegisterThreeComponent } from './pages/register-three/register-three.component';
 import { RegisterSixComponent } from './pages/register-six/register-six.component';
+import { HistoryComponent } from './pages/history/history.component';
 
 
 
@@ -31,7 +32,7 @@ const routes: Routes = [
   {path : 'onboarding' , component : OnboardingComponent },
   {path : 'recommended' , component : RecommendedComponent },
   {path : 'profile' , component : ProfileComponent },
-  // {path : '' , component : }
+  {path : 'history' , component : HistoryComponent}
   
 ];
 

@@ -27,6 +27,7 @@ import { RegisterFourComponent } from './pages/register-four/register-four.compo
 import { RegisterFiveComponent } from './pages/register-five/register-five.component';
 import { RegisterSixComponent } from './pages/register-six/register-six.component';
 import { RegisterOneComponent } from './pages/register-one/register-one.component';
+import { HistoryComponent } from './pages/history/history.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { RegisterOneComponent } from './pages/register-one/register-one.componen
     RegisterFourComponent,
     RegisterFiveComponent,
     RegisterSixComponent,
-    RegisterOneComponent
+    RegisterOneComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

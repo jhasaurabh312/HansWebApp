@@ -1176,8 +1176,11 @@ export class RegisterComponent implements OnInit {
 
       console.log('first', res);
       this.ngxNotificationService.sendMessage(res.error_message, 'success', 'top-right');
-      localStorage.setItem('identityNumber', res.identity_number);
-     
+      localStorage.setItem('identity_number', res.identity_number);
+      if(res.zeroth_page_status === 'Y')
+       this.router.navigate(['/register-one']);
+      else
+       alert('Email already exists!!'); 
 
     }, err => {
       this.ngxNotificationService.sendMessage('SomeThing Went Wrong,Please try again AfterSome time!', 'danger', 'top-right');
@@ -1542,78 +1545,78 @@ export class RegisterComponent implements OnInit {
       secondCtrl: ['', Validators.required]
     });
     // tslint:disable-next-line:no-non-null-assertion
-    this.stateGroupOptions = this.stateForm.get('stateGroup') !.valueChanges
+    this.stateGroupOptions = this.stateForm.get('stateGroup').valueChanges
       .pipe(
         startWith(''),
         map(value => this._filterGroup(value))
       );
-    this.HigherEducationOptions = this.EducationDetails.get('HighestDegree') !.valueChanges
+    this.HigherEducationOptions = this.EducationDetails.get('HighestDegree').valueChanges
       .pipe(
         startWith(''),
         map(value => this._educGroup(value))
       );
     console.log(this.HigherEducationOptions);
     // tslint:disable-next-line:no-non-null-assertion
-    this.ReligionOptions = this.stateForm.get('Religion') !.valueChanges.pipe(
+    this.ReligionOptions = this.stateForm.get('Religion').valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
     );
     // tslint:disable-next-line:no-non-null-assertion
-    this.MartalStatusOtions = this.stateForm.get('MaritalStatus') !.valueChanges.pipe(
+    this.MartalStatusOtions = this.stateForm.get('MaritalStatus').valueChanges.pipe(
       startWith(''),
       map(value => this._Maritalfilter(value))
     );
     // tslint:disable-next-line:no-non-null-assertion
-    this.CasteOptions = this.stateForm.get('Castes') !.valueChanges.pipe(
+    this.CasteOptions = this.stateForm.get('Castes').valueChanges.pipe(
       startWith(''),
       map(value => this._Castefilter(value))
     );
-    this.ProfileOptions = this.PageOne.get('create') !.valueChanges.pipe(
+    this.ProfileOptions = this.PageOne.get('create').valueChanges.pipe(
       startWith(''),
       map(value => this._profilefilter(value))
     );
-    this.GenderOptions = this.PageOne.get('gender') !.valueChanges.pipe(
+    this.GenderOptions = this.PageOne.get('gender').valueChanges.pipe(
       startWith(''),
       map(value => this._genderfilter(value))
     );
-    this.MangalikOptions = this.stateForm.get('Mangalik') !.valueChanges.pipe(
+    this.MangalikOptions = this.stateForm.get('Mangalik').valueChanges.pipe(
       startWith(''),
       map(value => this._Mangalikfilter(value))
     );
-    this.HoroScopeOptions = this.stateForm.get('Castes') !.valueChanges.pipe(
+    this.HoroScopeOptions = this.stateForm.get('Castes').valueChanges.pipe(
       startWith(''),
       map(value => this._HoroScopefilter(value))
     );
-    this.OccupatiinOptions = this.EducationDetails.get('Occupation') !.valueChanges.pipe(
+    this.OccupatiinOptions = this.EducationDetails.get('Occupation').valueChanges.pipe(
       startWith(''),
       map(value => this._ofilter(value))
     );
-    this.AOptions = this.EducationDetails.get('AnnualIncome') !.valueChanges.pipe(
+    this.AOptions = this.EducationDetails.get('AnnualIncome').valueChanges.pipe(
       startWith(''),
       map(value => this._Afilter(value))
     );
-    this.FamilyOptions = this.FamilyDetails.get('FamilyType') !.valueChanges.pipe(
+    this.FamilyOptions = this.FamilyDetails.get('FamilyType').valueChanges.pipe(
       startWith(''),
       map(value => this.ft(value))
     );
-    this.fo = this.FamilyDetails.get('FatherOccupation') !.valueChanges.pipe(
+    this.fo = this.FamilyDetails.get('FatherOccupation').valueChanges.pipe(
       startWith(''),
       map(value => this.fato(value))
     );
     // tslint:disable-next-line:no-non-null-assertion
-    this.mo = this.FamilyDetails.get('MotherOccupation') !.valueChanges.pipe(
+    this.mo = this.FamilyDetails.get('MotherOccupation').valueChanges.pipe(
       startWith(''),
       map(value => this.mato(value))
     );
-    this.bro = this.FamilyDetails.get('brother') !.valueChanges.pipe(
+    this.bro = this.FamilyDetails.get('brother').valueChanges.pipe(
       startWith(''),
       map(value => this.brot(value))
     );
-    this.sis = this.FamilyDetails.get('sister') !.valueChanges.pipe(
+    this.sis = this.FamilyDetails.get('sister').valueChanges.pipe(
       startWith(''),
       map(value => this.sist(value))
     );
-    this.stateo = this.FamilyDetails.get('state') !.valueChanges.pipe(
+    this.stateo = this.FamilyDetails.get('state').valueChanges.pipe(
       startWith(''),
       map(value => this.stt(value))
     );

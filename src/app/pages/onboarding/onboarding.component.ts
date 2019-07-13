@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import {NgxAutoScroll} from "ngx-auto-scroll";
 
 @Component({
   selector: 'app-onboarding',
@@ -9,6 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./onboarding.component.scss']
 })
 export class OnboardingComponent implements OnInit {
+
+  @ViewChild(NgxAutoScroll,{static: false}) ngxAutoScroll: NgxAutoScroll;
+ 
+   
   user_profile: any = [];
   answer: FormGroup;
   show1 : boolean = true;
@@ -22,6 +27,7 @@ export class OnboardingComponent implements OnInit {
   show_arr:any=[];
   previous_chats: any;
   user: any;
+  DoNotshowfull : boolean ;
 
   constructor( private _formBuilder: FormBuilder, private router: Router, private http:HttpClient) { 
     this.answer = this._formBuilder.group({
@@ -60,14 +66,22 @@ export class OnboardingComponent implements OnInit {
               }
             }
         
-      }
+      }    
+      var div = (<HTMLInputElement>document.getElementById('body'));
+      // div.scrollIntoView(false);
+      console.log(div.clientHeight)
+      console.log(div.scrollHeight);
+      console.log(div.offsetHeight);
+     
   })
-    console.log(this.show_arr);
-    var h = (<HTMLInputElement>document.getElementById('body')).clientHeight;
-    console.log(h);
-    window.scrollTo(0,2*h);
+     
+      console.log(this.show_arr);
+      this.DoNotshowfull = true;
+    
+  }
 
-
+  knowMore(){
+   this.DoNotshowfull = false;
   }
 
   read(data){
@@ -81,16 +95,19 @@ export class OnboardingComponent implements OnInit {
     this.chatRequest(data);
   }
 
-  showProfile(){
-        const Data = new FormData();
-        Data.append('identity_number' , localStorage.getItem('identity_number'));
-        this.sent = false;
-        this.profile = true;
+  showProfile(value){
+        // const Data = new FormData();
+        // Data.append('identity_number' , localStorage.getItem('identity_number'));
+        // this.sent = false;
+        // this.profile = true;
 
-        this.http.post('https://partner.hansmatrimony.com/api/getRecommendedProfiles' , Data).subscribe((res : any) => {
-          this.user_profile = res;
-          console.log(res);   
-        })
+        // this.http.post('https://partner.hansmatrimony.com/api/getRecommendedProfiles' , Data).subscribe((res : any) => {
+        //   this.user_profile = res;
+        //   console.log(res);   
+        // })
+
+        this.show_arr.push({'side':1,'data':value,'sent':1,'message':0,'profile':0}) ;
+        this.chatRequest(value);
   }
 
   chatRequest(data){

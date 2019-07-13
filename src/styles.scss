@@ -269,19 +269,20 @@ html{
       pointer-events: auto;
       font-size: 23px;
       width: 70%;
-            position: static;
-      margin-left: 1%;
-      margin-top: 2%;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20%;
       }
    /* .cdk-overlay-pane{
     position: relative;
     right: 45%;
    } */
-      .mat-datepicker-content{
-        position: relative;
-        right: 0%;
+      // .mat-datepicker-content{
+      //   position: relative;
+      //   right: 0%;
       
-      }
+      // }
 
       .mat-tab-label{
         font-size: 10px;
@@ -302,4 +303,29 @@ html{
    background-color: #007BFF; 
    padding:6px;
    color:white
+}
+
+
+.btn-next{
+  width: 40%;
+  border-radius:20px;
+  border : 2px solid #007BFF;
+  background-color: #007BFF; 
+  padding:6px;
+  color:white;
+  margin-left:10%;margin-right:10%;
+}
+
+.btn-skip{
+  width: 40%;
+  border-radius:20px;
+  border : 2px #6e6f7573;
+  background-color: #6e6f7573;
+  padding:6px;
+  color:white;
+  margin-left:auto;margin-right:auto;
+}
+
+mat-form-field{
+  height: 60px;
 }
